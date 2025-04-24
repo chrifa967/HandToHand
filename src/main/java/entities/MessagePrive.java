@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+
 @Entity
 public class MessagePrive {
     @Id
@@ -16,12 +17,15 @@ public class MessagePrive {
 
     @ManyToOne
     @JoinColumn(name = "recepteur_id")
-
     private Utilisateur recepteur;
+
+
+    @Column(columnDefinition = "TEXT")
     private String message;
+
     private LocalDateTime dateEnvoi;
     private boolean vu = false;
-
+    private boolean supprime = false;
 
 
     public int getId() {
@@ -76,12 +80,22 @@ public class MessagePrive {
 
     }
 
-    public MessagePrive(int id, Utilisateur envoyeur, Utilisateur recepteur, String message, LocalDateTime dateEnvoi, boolean vu) {
-        this.id = id;
+    public boolean isSupprime() {
+        return supprime;
+    }
+
+    public void setSupprime(boolean supprime) {
+        this.supprime = supprime;
+    }
+
+
+
+    public MessagePrive(Utilisateur envoyeur, Utilisateur recepteur, String message) {
         this.envoyeur = envoyeur;
         this.recepteur = recepteur;
         this.message = message;
-        this.dateEnvoi = dateEnvoi;
-        this.vu = vu;
+        this.dateEnvoi = LocalDateTime.now();
+        this.vu = false;
+        this.supprime = false;
     }
 }
