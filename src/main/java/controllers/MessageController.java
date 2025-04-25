@@ -1,5 +1,6 @@
 package controllers;
 
+import dto.MessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +18,9 @@ public class MessageController {
 
     @PostMapping("/envoyer")
 
-    public ResponseEntity<?> envoyerMessage(@RequestBody MessageDto dto) {
+    public ResponseEntity<?> envoyerMessage(@RequestBody MessageDTO dto) {
         return ResponseEntity.ok(messageService.envoyerMessage(dto.getEnvoyeurId(), dto.getRecepteurId(), dto.getMessage()));
+
     }
 
 
