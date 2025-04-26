@@ -1,4 +1,4 @@
-package entities;
+package org.example.handtohand.entities;
 
 import jakarta.persistence.*;
 

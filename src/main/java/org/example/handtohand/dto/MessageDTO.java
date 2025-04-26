@@ -1,6 +1,6 @@
-package dto;
+package org.example.handtohand.dto;
 
-import entities.MessagePrive;
+import org.example.handtohand.entities.MessagePrive;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package dto;
+package org.example.handtohand.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
